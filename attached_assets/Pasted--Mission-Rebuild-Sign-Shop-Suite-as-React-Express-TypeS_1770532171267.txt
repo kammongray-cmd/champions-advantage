@@ -1,0 +1,118 @@
+## Mission: Rebuild Sign Shop Suite as React + Express/TypeScript
+
+You are rebuilding a Streamlit/Python CRM app into a modern React + Express/TypeScript application. This is a full rewrite — new stack, same functionality, better architecture.
+
+### ⚠️ DATABASE SAFETY — READ THIS FIRST
+DO NOT connect to the live Supabase database during development.
+Use Replit's built-in PostgreSQL database for all building and testing.
+
+Steps:
+1. Read the existing Streamlit codebase to understand the current schema
+2. Recreate the same schema in Replit's local PostgreSQL using Drizzle ORM migrations
+3. Seed it with sample/test data so we can verify everything works
+4. We will connect to the live Supabase database LATER, only after everything is tested
+
+Remove or ignore the SUPABASE_URL, SUPABASE_KEY, and DATABASE_URL secrets for now.
+Use Replit's built-in database connection instead.
+
+### Step 1: Study the Existing App
+Before writing any code, read and understand:
+- All Python files, especially app.py, main.py, and everything in /views/
+- The database schema — every table, column, and relationship
+- The /services/ directory for AI integrations
+- The /api/lead_receiver.py webhook
+- The /components/ directory for UI patterns
+- Document what you find before building
+
+### Step 2: Architecture (match my SalesRecall project exactly)
+Reference repo: github.com/kammongray-cmd/SalesRecall
+
+Structure:
+/server/
+routes.ts — ALL API routes
+storage.ts — database access layer
+db.ts — Drizzle ORM connection
+/client/
+/src/
+/pages/ — React page components
+/components/ — Reusable UI components
+/hooks/ — Custom React hooks
+/lib/ — Utilities
+/shared/
+schema.ts — Drizzle schema + shared types
+drizzle.config.ts — Drizzle configuration
+
+
+Tech stack:
+- Express server with TypeScript
+- Drizzle ORM for database (PostgreSQL)
+- React client with TypeScript
+- Shared types between client and server
+- Mobile-friendly responsive design
+
+### Step 3: Features to Preserve (ALL must work)
+1. **Dashboard** with 5-block pipeline: Next Action (0) → Survey (A) → Design (B) → Proposal (C) → Production (D)
+2. **Project Detail view** — full project info, status, history, attachments, notes
+3. **Lead Detail view** — lead info, qualification, conversion to project
+4. **Ledger** / financial tracking
+5. **Lead receiver webhook** — currently api/lead_receiver.py → rebuild as POST /api/leads (Google Chat integration)
+6. **Production Lockdown** — prevents version errors in production stage
+7. **AI integrations** — Gemini for summaries, analysis, or any existing AI features
+8. **Email functionality** — SMTP integration for sending emails/notifications
+9. **Project history tracking** — phone calls, emails, notes, status changes
+10. **Multi-tenant support** — preserve the tenant_id pattern if it exists in the schema
+
+### Step 4: REST API (this is critical)
+Every piece of data MUST be accessible via REST endpoints. This is what allows external tools to connect.
+
+Required endpoints:
+- `GET /api/projects` — list all projects (with filters: status, pipeline stage, search)
+- `GET /api/projects/:id` — single project with full detail
+- `POST /api/projects` — create project
+- `PUT /api/projects/:id` — update project
+- `DELETE /api/projects/:id` — soft delete only (never hard delete)
+- `GET /api/leads` — list leads
+- `GET /api/leads/:id` — lead detail
+- `POST /api/leads` — create lead / webhook receiver for Google Chat
+- `PUT /api/leads/:id` — update lead
+- `POST /api/leads/:id/convert` — convert lead to project
+- `GET /api/pipeline` — current pipeline status (counts per stage)
+- `GET /api/daily-summary` — today's actionable items
+- `GET /api/contacts` — all contacts
+- `GET /api/ledger` — financial entries
+- `POST /api/ledger` — add entry
+- All endpoints return JSON
+- All list endpoints support search/filter query params
+
+### Step 5: UI Design
+- Clean dark professional theme (similar to SalesRecall's orange/dark style)
+- Bottom navigation bar for mobile (Home, Projects, Leads, Ledger, Settings)
+- Pipeline visualized as 5 columns or cards on dashboard
+- Responsive — works great on phone and desktop
+- Settings page for configuration
+- Quick actions: tap to call, tap to email from contact cards
+
+### Step 6: Build Order (follow this sequence)
+1. **Schema first** — Drizzle schema matching existing database structure
+2. **Database connection** — verify Replit PostgreSQL works
+3. **Migrations** — create all tables, seed with test data
+4. **API routes** — build and test every endpoint
+5. **React app scaffold** — routing, layout, navigation
+6. **Dashboard page** — pipeline view with real data
+7. **Project detail page** — full CRUD
+8. **Lead pages** — list, detail, conversion
+9. **Ledger page** — financial tracking
+10. **Settings page** — configuration
+11. **Webhook** — POST /api/leads for Google Chat
+12. **AI features** — Gemini integration for any existing AI features
+13. **Email** — SMTP send capability
+14. **Polish** — mobile responsive, dark theme, loading states
+
+### Rules
+- DO NOT skip features from the original app
+- DO NOT use placeholder/mock data in the final build — connect to real DB
+- DO NOT hard delete anything — soft deletes only
+- DO build incrementally and test each layer before moving to the next
+- DO keep the code clean and typed — no `any` types
+- DO handle errors gracefully with user-friendly messages
+- DO make the API documentation clear in the code with comments

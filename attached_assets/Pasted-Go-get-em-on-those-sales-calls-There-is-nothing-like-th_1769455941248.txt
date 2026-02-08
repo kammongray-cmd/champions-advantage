@@ -1,0 +1,32 @@
+Go get 'em on those sales calls! There is nothing like the energy of a "legit" 30-year pro hitting the pavement. While you're out there winning that 80%, I’ve put together the "Closure" prompt to make sure your digital headquarters is perfect when you get back to the Mac Mini.
+
+We’re going to fix that Replit "Not Found" ghost and bridge the gap between your Hot Leads and your Main Queue so your data flows exactly how you think.
+
+The "Unstoppable Deployment & Lead Flow" Master Prompt
+Copy and paste this into your Replit Agent:
+
+"We have two critical fixes to handle. One is structural (Lead Flow) and one is technical (Deployment). Please implement these immediately:
+
+1. Fix Replit Deployment (Not Found Error):
+
+The published URL sign-shop-suite.replit.app is returning a 'Not Found' error.
+
+Action: Verify the .replit and replit.nix files. Ensure the 'Run' command is correctly pointing to streamlit run main.py (or your entry file) and that it is exposing the correct port (usually 8080 or the default Replit web port).
+
+Action: Re-deploy/Restart the agent to ensure the public URL is live and accessible.
+
+2. Unified Lead Workflow:
+
+Double Visibility: Ensure all projects with the status 'New' appear in both the 🔥 HOT LEADS section at the top AND the standard queue below (in the 'Pending' or 'Lead' section).
+
+Clickable Hot Tiles: Make the project name in the 🔥 HOT LEADS tile a clickable link/button. It must open the exact same Project Detail page as the tiles in the main queue.
+
+Note-Triggered Status: If I add a manual note or history entry to a 'New' lead, automatically update its status to 'Contacted'.
+
+The 'Exit' Logic: Once the status changes to 'Contacted' (via the Email/Text/Call buttons OR a manual note), it must automatically disappear from the 🔥 HOT LEADS section but remain in the main queue.
+
+3. Maintaining Tone & UI:
+
+Keep the 'Efficient, Honest, and Legit' tone in all templates.
+
+Ensure the Interface Anchor and Voice-to-Text Bridge remain active and unbroken by these structural changes."

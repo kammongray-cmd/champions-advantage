@@ -1,0 +1,16 @@
+[project]
+name = "repl-nix-workspace"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "google-generativeai>=0.8.6",
+    "pillow>=12.1.0",
+    "psycopg2-binary>=2.9.11",
+    "pymupdf>=1.26.7",
+    "sqlalchemy>=2.0.46",
+    "streamlit>=1.53.1",
+    "streamlit-drawable-canvas-fix>=0.9.8",
+    "streamlit-js-eval>=1.0.0",
+    "supabase>=2.27.2",
+]

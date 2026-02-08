@@ -1,0 +1,53 @@
+The dashboard looks solid — nice work. Now let's add the killer feature that's missing 
+and polish this thing until it shines.
+
+## File & Attachment System (Critical Missing Feature)
+
+The original app has project files, images, and designs attached to each project. 
+This is essential for a sign shop — every project IS its visuals.
+
+Build a complete file management system:
+
+### Per-Project Attachments
+- Upload multiple files per project (drag & drop + click to upload)
+- Support images (JPG, PNG, WebP), PDFs, and design files
+- Auto-generate thumbnails for images
+- File categories: "Design Mockup", "Customer Photo", "Proposal", "Production File", "Permit", "Other"
+- Each file shows: thumbnail, filename, category tag, upload date, file size
+- Click to preview (lightbox for images, inline for PDFs)
+- Delete with confirmation
+
+### Google Drive Integration
+- Link a Google Drive folder to any project
+- Show Drive folder contents inline in the project view
+- Quick-link button to open the Drive folder in a new tab
+
+### Project Detail — Make It Beautiful
+- Hero section with the latest design mockup as a banner image
+- Photo gallery grid of all project images (masonry or grid layout)
+- Before/after comparison view (customer photo vs design mockup)
+- File section organized by category with icons
+- Timeline view showing project history (calls, emails, status changes, file uploads)
+
+### API Endpoints
+- GET /api/projects/:id/attachments — list all files
+- POST /api/projects/:id/attachments — upload file (multipart)
+- DELETE /api/projects/:id/attachments/:fileId — remove file
+- PUT /api/projects/:id/attachments/:fileId — update category/metadata
+- GET /api/projects/:id/drive — linked Drive folder info
+
+## Overall Polish Pass
+
+While you're in there, surprise me:
+- Smooth transitions and animations (subtle, professional — not flashy)
+- Toast notifications for actions (saved, uploaded, deleted)
+- Loading skeletons instead of spinners
+- Keyboard shortcuts (N for new project, / for search)
+- Pipeline cards that feel alive — drag to move between stages if possible
+- The dashboard should make me WANT to open this app every morning
+- Mobile experience should feel native — swipe gestures, bottom sheet modals
+- Dark mode should be gorgeous, not just "dark gray on darker gray"
+- Add a quick-search spotlight (Cmd+K style) to find any project or lead instantly
+
+Think of this as the app I'm going to show potential clients. 
+First impressions matter. Make it feel like a $10,000 custom build.

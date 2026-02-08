@@ -1,0 +1,39 @@
+"The mobile UI needs a complete structural overhaul based on field testing. We need to tighten vertical spacing and move to an 'Integrated Tile' system. Please implement these specific changes:
+
+1. Global Theme & Aesthetic Cleanup:
+
+Dark Mode Enforced: Set the background to deep black/dark grey. Use KB Signs Green (#39FF14) only for critical accents.
+
+Emoji Removal: Remove all emojis from the UI (🎯, 🚀, 📦, etc.). Replace them with subtle, professional Lucide or FontAwesome icons (e.g., a standard mic icon for dictation).
+
+Header: Keep the 'KB Signs' text header but use a professional, clean font. Ensure it stays slim to save vertical space.
+
+2. The 'Integrated Hot Lead' Card:
+
+The Single Wrapper: Combine the lead name and actions into one black card.
+
+Click-to-Open: Make the Lead Name itself the button that opens the detail view. Remove the 'View Details' button entirely.
+
+Horizontal Action Row: Replace the vertical list of Call/Text/Email/Delete buttons with a single horizontal row of clean icons (Phone, Message, Envelope, Trash) at the bottom of the card.
+
+Cleanup: Remove the 'Smart Intake' badge once the lead is in the system.
+
+3. Dashboard Project Tiles (The 'One-Button' Fix):
+
+Unified Tile: For projects like 'Aspen Alcove' or 'Bentley Stark', merge the name box, the status text, and the 'Open' button into one single clickable container.
+
+The 'Done' Action: Include a small, subtle 'Done' button or checkbox inside this same tile, aligned to the right, so it doesn't need its own vertical row.
+
+Height Constraint: Ensure each project tile takes up no more than 1.2 inches of vertical space on a standard mobile screen.
+
+4. Tighten 'Block 0: Next Action':
+
+Compact Layout: Reduce the padding and margins around the 'Next Action' text area and the 'Save' button.
+
+Standard Mic: Use a standard, small system mic icon for dictation instead of the large emoji-style one.
+
+Due Date: Move the Due Date picker to be inline with the 'Save' button if possible, or significantly reduce the space between them.
+
+5. Technical Persistence:
+
+Maintain the Interface Anchor and Mountain Time (MT) logic. Ensure that tapping these new integrated tiles feels 'snappy' and maintains the scroll position."
